@@ -14,7 +14,7 @@ class LinkCommand extends Command
 {
     use Art, Check, Finalize, Link;
 
-    protected $signature = 'devlink:link';
+    protected $signature = 'moox:devlink';
 
     protected $description = 'Symlink Moox packages into the project from multiple base paths and ensure composer.json is updated';
 
@@ -42,6 +42,8 @@ class LinkCommand extends Command
         $this->art();
         info('Hello, I will link the configured packages for you.');
         $this->check();
+        // create a symlink for the DEVLOG.md file
+
         $this->link();
         $this->finalize();
         info('Packages linked! Have a nice dev!');
